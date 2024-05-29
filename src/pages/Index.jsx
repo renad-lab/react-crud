@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 const Index = () => {
     const [bookmarks, setBookmarks] = useState([])
@@ -7,7 +8,6 @@ const Index = () => {
         fetch(API)
             .then(res => res.json())
             .then(res => {
-                // console.log(res)
                 setBookmarks(res)
             })
     }, [])
@@ -17,7 +17,7 @@ const Index = () => {
         <div>
             {bookmarks.map((bookmark) => {
                 return(
-                    <div key={bookmark.id}>{bookmark.name}</div>
+                    <Link to={`/bookmarks/${bookmark.id}`} key={bookmark.id}>{bookmark.name}</Link>
                 )
             })}
         </div>
