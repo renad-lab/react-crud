@@ -26,6 +26,7 @@ const Show = () => {
             <h3>{bookmark.name}</h3>
             <a href={bookmark.url} target="_blank">{bookmark.url}</a>
             <p>Category: {bookmark.category}</p>
+            <p>Favorite: {bookmark.is_favorite ? "true" : "false"}</p>
         </div>
     );
 };

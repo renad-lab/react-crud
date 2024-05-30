@@ -15,9 +15,16 @@ const New = () => {
     })
 
     const handleChange = (e) => {
-        // console.log(e.target.name)
+        // console.log(e)
         setNewBookmark((prevState) => {
-            return {...prevState, [e.target.name]: e.target.value }
+            return { ...prevState, [e.target.name]: e.target.value }
+        })
+    }
+
+    const handleCheckBox = (e) => {
+        setNewBookmark((prevState) => {
+            const favorited = !newBookmark.is_favorite
+            return { ...prevState, is_favorite: favorited }
         })
     }
 
@@ -50,6 +57,13 @@ const New = () => {
                     onChange={handleChange}
                 />
                 <br/>
+                <label htmlFor="fav">Favorite</label>
+                <input 
+                    type="checkbox"
+                    id="fav"
+                    checked={newBookmark.is_favorite}
+                    onChange={handleCheckBox}
+                />
                 <input type="submit" value="Submit"/>
             </fieldset>
         </form>

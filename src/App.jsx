@@ -17,7 +17,6 @@ function App() {
         <Route path="/bookmarks/:id" element={ <Show /> } />
         <Route path="/new" element={ <New /> } />
       </Routes>
-
     </>
   )
 }
