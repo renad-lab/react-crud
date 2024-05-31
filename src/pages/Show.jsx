@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 const Show = () => {
     const { id } = useParams()
@@ -27,6 +27,9 @@ const Show = () => {
             <a href={bookmark.url} target="_blank">{bookmark.url}</a>
             <p>Category: {bookmark.category}</p>
             <p>Favorite: {bookmark.is_favorite ? "true" : "false"}</p>
+            <Link to={`/bookmarks/${id}/edit`}>
+                <button>Edit</button>
+            </Link>
         </div>
     );
 };
